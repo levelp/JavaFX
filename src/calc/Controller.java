@@ -1,4 +1,4 @@
-package sample;
+package calc;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
