@@ -1,5 +1,6 @@
 package calc;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
@@ -21,4 +22,11 @@ public class Controller {
     public Button button9;
     public Button button0;
 
+    public void digit(ActionEvent actionEvent) {
+        System.out.println("actionEvent = " + actionEvent.toString());
+        if (actionEvent.getSource() instanceof Button) {
+            Button button = (Button) actionEvent.getSource();
+            aField.setText(aField.getText() + button.getText());
+        }
+    }
 }
