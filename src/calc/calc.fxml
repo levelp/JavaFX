@@ -8,8 +8,8 @@
     <children>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
-                <TextField fx:id="aField" prefHeight="25.0" prefWidth="285.0">
-                    <HBox.margin>
+                <TextField fx:id="display" prefHeight="25.0" prefWidth="285.0">
+                <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
                     </HBox.margin>
                 </TextField>

@@ -7,7 +7,7 @@ import javafx.scene.layout.VBox;
 
 public class Controller {
 
-    public TextField aField;
+    public TextField display;
     public TextField resultField;
     public VBox mainPanel;
 
@@ -26,7 +26,7 @@ public class Controller {
         System.out.println("actionEvent = " + actionEvent.toString());
         if (actionEvent.getSource() instanceof Button) {
             Button button = (Button) actionEvent.getSource();
-            aField.setText(aField.getText() + button.getText());
+            display.setText(display.getText() + button.getText());
         }
     }
 }
