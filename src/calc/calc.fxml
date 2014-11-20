@@ -6,18 +6,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox fx:id="mainPanel" prefHeight="166.0" prefWidth="254.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.Controller">
+<VBox fx:id="mainPanel" maxHeight="166" maxWidth="254" prefHeight="166.0" prefWidth="254.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calc.Controller">
     <children>
-        <HBox prefHeight="100.0" prefWidth="200.0">
+        <HBox prefHeight="39.0" prefWidth="242.0">
             <children>
-                <TextField fx:id="display" prefHeight="25.0" prefWidth="285.0">
+                <TextField fx:id="display" prefHeight="25.0" prefWidth="254.0">
                 <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                     </HBox.margin>
                 </TextField>
             </children>
         </HBox>
-        <Pane prefHeight="181.0" prefWidth="254.0">
+        <Pane prefHeight="120.0" prefWidth="254.0">
             <children>
                 <GridPane>
                     <columnConstraints>

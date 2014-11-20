@@ -35,13 +35,17 @@ public class Controller {
     boolean isFirstNumber = true;
     boolean clearText = false;
 
+    public void clearTextField() {
+        display.setText("");
+    }
 
     public void digit(ActionEvent actionEvent) {
         System.out.println("actionEvent = " + actionEvent.toString());
 
         Button button = (Button) actionEvent.getSource();
+        //освобождаем поле после ввода символа оператора
         if (clearText) {
-            display.setText("");
+            clearTextField();
             clearText = false;
         }
 
@@ -50,16 +54,16 @@ public class Controller {
     }
 
     public void clear(ActionEvent actionEvent) {
-        display.setText("");
+        clearTextField();
         isFirstNumber = true;
     }
 
     public void operation(ActionEvent actionEvent) {
         Button button = (Button) actionEvent.getSource();
+        //добавляем текущее число в текстовом поле в переменную result1
         result1 = Double.parseDouble(display.getText());
-        System.out.println("result is " + result1);
         operation = button.getText();
-        if(isFirstNumber) {
+        if (isFirstNumber) {
             result2 = result1;
             lastOperation = operation;
             isFirstNumber = false;
@@ -72,21 +76,27 @@ public class Controller {
     }
 
     public void operate(double result1) {
-        if (lastOperation.equals("+")) {
-            result2 += result1;
-        } else if (lastOperation.equals("-")) {
-            result2 -=result1;
-        } else if (lastOperation.equals("*")) {
-            result2 *= result1;
-        } else if (lastOperation.equals("/")) {
-            result2 /=result1;
-        } else if (lastOperation.equals("=")) {
-            result2 = result1;
+        switch (lastOperation.charAt(0)) {
+            case '+':
+                result2 += result1;
+                break;
+            case '-':
+                result2 -= result1;
+                break;
+            case '*':
+                result2 *= result1;
+                break;
+            case '/':
+                result2 /= result1;
+                break;
+            case '=':
+                result2 = result1;
+                break;
+            default:
+                break;
         }
-        System.out.println("result2 is " + result2);
+
         display.setText(Double.toString(result2));
-
     }
-
 
 }
