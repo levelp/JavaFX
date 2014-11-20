@@ -2,12 +2,12 @@ package calc;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 public class Controller {
 
-    public TextField display;
+
+    public NewTextField display;
     public VBox mainPanel;
 
     public Button button1;
@@ -34,6 +34,7 @@ public class Controller {
     public String lastOperation;
     boolean isFirstNumber = true;
     boolean clearText = false;
+    public static boolean isPointAllowed = true;
 
     public void clearTextField() {
         display.setText("");
@@ -43,19 +44,33 @@ public class Controller {
         System.out.println("actionEvent = " + actionEvent.toString());
 
         Button button = (Button) actionEvent.getSource();
-        //освобождаем поле после ввода символа оператора
-        if (clearText) {
-            clearTextField();
-            clearText = false;
-        }
 
-        display.setText(display.getText() + button.getText());
+        if (display.getText().length() <= 10) {
+
+
+            //освобождаем поле после ввода символа оператора
+            if (clearText) {
+                clearTextField();
+                clearText = false;
+            }
+            if (!button.equals(buttonPoint)) {
+
+                display.setText(display.getText() + button.getText());
+            } else {
+                if (isPointAllowed) {
+                    display.setText(display.getText() + button.getText());
+                    isPointAllowed = false;
+                }
+
+            }
+        }
 
     }
 
     public void clear(ActionEvent actionEvent) {
         clearTextField();
         isFirstNumber = true;
+        isPointAllowed = true;
     }
 
     public void operation(ActionEvent actionEvent) {
@@ -63,6 +78,7 @@ public class Controller {
         //добавляем текущее число в текстовом поле в переменную result1
         result1 = Double.parseDouble(display.getText());
         operation = button.getText();
+        isPointAllowed = true;
         if (isFirstNumber) {
             result2 = result1;
             lastOperation = operation;
