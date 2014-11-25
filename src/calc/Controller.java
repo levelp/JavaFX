@@ -103,8 +103,12 @@ public class Controller {
                 result2 *= result1;
                 break;
             case '/':
-                result2 /= result1;
-                break;
+                try {
+                    result2 /= result1;
+                } catch (ArithmeticException e) {
+                    display.setText("Нельзя делить на 0");
+                } finally {break;}
+
             case '=':
                 result2 = result1;
                 break;
