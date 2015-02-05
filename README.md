@@ -1,3 +1,8 @@
+Ссылки
+------
+* StackOverflow
+* http://fxexperience.com/controlsfx/
+* http://jfxtras.org
 
 
 Загрузка SceneBuilder
