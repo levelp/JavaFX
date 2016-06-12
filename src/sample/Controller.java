@@ -20,4 +20,8 @@ public class Controller {
         double sum = a + b;
         resultField.setText(Double.toString(sum));
     }
+
+    public void add(ActionEvent actionEvent) {
+        System.out.println("actionEvent = " + actionEvent.toString());
+    }
 }
